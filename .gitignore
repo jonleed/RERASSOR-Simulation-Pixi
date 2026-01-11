@@ -1,0 +1,17 @@
+# Pixi
+.pixi/
+pixi.lock
+
+# ROS2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Nix
+result
+result-*
+.direnv/
+
+# Python
+__pycache__/
+*.pyc
