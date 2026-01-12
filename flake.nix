@@ -1,5 +1,3 @@
-# RE-RASSOR using Pixi + RoboStack Approach
-# This avoids nix-ros-overlay entirely!
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

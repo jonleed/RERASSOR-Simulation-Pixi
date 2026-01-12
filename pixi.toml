@@ -4,10 +4,11 @@ version = "0.1.0"
 description = "RE-RASSOR Arm Simulation Development Environment"
 authors = ["Jonathan Leeder"]
 channels = ["robostack-staging", "conda-forge"]
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-64"]
+#platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64"] # Native M1 Failed to Launch Gazebo but is much faster
 
 [tasks]
-# Useful shortcuts
+# Shortcuts
 build = "colcon build"
 clean = "rm -rf build install log"
 source = "source install/setup.bash"
@@ -17,7 +18,7 @@ source = "source install/setup.bash"
 ros-humble-desktop = "*"
 ros-humble-ros-base = "*"
 
-# Gazebo (critical for simulation!)
+# Gazebo 11
 ros-humble-gazebo-ros-pkgs = "*"
 ros-humble-gazebo-ros2-control = "*"
 
