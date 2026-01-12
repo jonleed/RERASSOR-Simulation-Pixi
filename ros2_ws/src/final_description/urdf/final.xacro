@@ -1,0 +1,284 @@
+<?xml version="1.0" ?>
+<robot name="final" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find final_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find final_description)/urdf/final.trans" />
+<xacro:include filename="$(find final_description)/urdf/final.gazebo" />
+<xacro:include filename="$(find final_description)/urdf/final_include.xacro" />
+<material name="grey">
+        <color rgba="0.7 0.7 0.7 1"/>
+    </material>
+<link name="world"></link>
+
+<joint name="world_to_base" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin  rpy="0 0 0" xyz="0 0 .1" />
+    </joint>
+
+<link name="base_link">
+<inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+        </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sunconnector">
+  <inertial>
+    <origin xyz="3.290622982432545e-13 -9.536743103555345e-09 0.0152396655965897" rpy="0 0 0"/>
+    <mass value="0.007456676389725328"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0075 -0.1025 0.037395" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/sunconnector.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0075 -0.1025 0.037395" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/sunconnector.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="planetaryconnector">
+  <inertial>
+    <origin xyz="1.2191636589165e-14 -9.536743048044194e-09 0.0015295722361644247" rpy="0 0 0"/>
+    <mass value="0.053040912421324096"/>
+    <inertia ixx="1.1e-05" iyy="1.1e-05" izz="2e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0075 -0.1025 0.006915" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/planetaryconnector.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0075 -0.1025 0.006915" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/planetaryconnector.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="armone">
+  <inertial>
+    <origin xyz="-0.008148761484235868 -9.536743020288618e-09 0.09559783618692533" rpy="0 0 0"/>
+    <mass value="0.9905731051115977"/>
+    <inertia ixx="0.006626" iyy="0.008233" izz="0.006574" ixy="0.0" iyz="0.0" ixz="0.000296"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0075 -0.1025 0.005137" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/armone.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0075 -0.1025 0.005137" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/armone.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gearone">
+  <inertial>
+    <origin xyz="0.0005995518268453459 -2.4232014186886808e-08 0.07866273581028918" rpy="0 0 0"/>
+    <mass value="9.880467825044573"/>
+    <inertia ixx="0.1341" iyy="0.139269" izz="0.013058" ixy="-0.0" iyz="-0.0" ixz="-0.000641"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0295 -0.1025 -0.153863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/gearone.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0295 -0.1025 -0.153863" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/gearone.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gearthree">
+  <inertial>
+    <origin xyz="0.10632233944315062 -3.750772539778957e-09 3.936726586550865e-05" rpy="0 0 0"/>
+    <mass value="3.3142167062879557"/>
+    <inertia ixx="0.002162" iyy="0.049369" izz="0.049579" ixy="0.0" iyz="-0.0" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0295 -0.1025 -0.518363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/gearthree.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0295 -0.1025 -0.518363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/gearthree.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="manipulator">
+  <inertial>
+    <origin xyz="0.0019402690204358697 -9.536742284765864e-09 -0.022194034609853808" rpy="0 0 0"/>
+    <mass value="0.0043871469606408635"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.4145 -0.1025 -0.518363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/manipulator.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.4145 -0.1025 -0.518363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/manipulator.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+  <origin xyz="0.4 0.6 1.5" rpy="0 1.57 -1.57"/>
+</joint>
+
+<link name="camera_link">
+  <visual>
+    <geometry>
+      <box size="0.05 0.05 0.05"/>
+    </geometry>
+    <material name="blue">
+      <color rgba="0.0 0.0 1.0 1.0"/>
+    </material>
+  </visual>
+  <inertial>
+    <mass value="1.0"/>
+    <origin xyz="0 0 0"/>
+    <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+  </inertial>
+</link>
+
+<gazebo reference="camera_link">
+  <sensor type="camera" name="camera">
+    <update_rate>1</update_rate>
+    <visualize>false</visualize>
+    <camera>
+      <horizontal_fov>1.396</horizontal_fov>
+      <image>
+        <width>320</width>
+        <height>240</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.01</near>
+        <far>5</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <cameraName>camera</cameraName>
+      <frameName>camera_link</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+
+
+<joint name="Revolute 40" type="continuous">
+  <origin xyz="0.0075 0.1025 -0.037395" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="sunconnector"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.0 0.0 0.03048" rpy="0 0 0"/>
+  <parent link="sunconnector"/>
+  <child link="planetaryconnector"/>
+</joint>
+
+<joint name="Rigid 42" type="fixed">
+  <origin xyz="0.0 0.0 0.001778" rpy="0 0 0"/>
+  <parent link="planetaryconnector"/>
+  <child link="armone"/>
+</joint>
+
+<joint name="Revolute 43" type="continuous">
+  <origin xyz="0.022 0.0 0.159" rpy="0 0 0"/>
+  <parent link="armone"/>
+  <child link="gearone"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 44" type="continuous">
+  <origin xyz="0.0 0.0 0.3645" rpy="0 0 0"/>
+  <parent link="gearone"/>
+  <child link="gearthree"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 45" type="continuous">
+  <origin xyz="0.385 0.0 0.0" rpy="0 0 0"/>
+  <parent link="gearthree"/>
+  <child link="manipulator"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+<ros2_control name="GazeboSystem" type="system">
+    <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="Revolute 40">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="Revolute 43">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="Revolute 44">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="Revolute 45">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+</ros2_control>
+<gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <parameters>$(find final_description_moveit_config)/config/ros2_controllers.yaml</parameters>
+    </plugin>
+</gazebo>
+</robot>

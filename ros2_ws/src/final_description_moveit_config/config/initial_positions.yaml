@@ -1,0 +1,7 @@
+# Default initial positions for final's ros2_control fake system
+
+initial_positions:
+  Revolute 40: 0
+  Revolute 43: 0
+  Revolute 44: 0
+  Revolute 45: 0
