@@ -2,15 +2,15 @@
 
 This repository contains the ROS 2 Humble simulation for the RE-RASSOR arm, converted to use **Pixi** for dependency management. This setup ensures a reproducible environment across different systems (Linux, macOS, etc.) without requiring system-wide ROS installations.
 
-Read More about Pixi:
+### Why Pixi?
 
-* **[Reproducible Package Management for Robotics](https://prefix.dev/blog/reproducible-package-management-for-robotics)** 
-
-* **[RoboStack Documentation](https://robostack.github.io/GettingStarted.html)** 
+* **[Reproducible Package Management for Robotics](https://prefix.dev/blog/reproducible-package-management-for-robotics)**  
 
 ## Prerequisites
 * **Pixi** (Package Manager)
 ```bash
+curl -fsSL https://pixi.sh/install.sh | sh
+# or 
 brew install pixi
 ```
 ---
@@ -31,6 +31,7 @@ pixi shell
 
 Build the Workspace: We use colcon to build the ROS 2 packages.
 ```bash
+cd ros2_ws
 colcon build
 ```
 
@@ -50,6 +51,7 @@ This starts the physics engine (Gazebo), visualization (RViz), and the robot sta
 pixi shell
 
 # 2. Source the workspace
+cd ros2_ws
 source install/setup.bash
 
 # 3. Launch the bringup file
@@ -64,6 +66,7 @@ The robot may spawn in a passive state. You need to manually activate the ROS 2 
 pixi shell
 
 # 2. Source the workspace
+cd ros2_ws
 source install/setup.bash
 
 # 3. Load the Joint State Broadcaster (Reads joint positions)
@@ -77,6 +80,7 @@ To run the computer vision node for Aruco tag detection:
 
 ```bash
 pixi shell
+cd ros2_ws
 source install/setup.bash
 ros2 run aruco_recognition aruco_pose_estimation.py
 ```
@@ -87,6 +91,11 @@ Failing at Colcon Build: Delete build artifacts and rebuild
 ```bash
 rm -rf build install log
 colcon build
+```
+
+Make sure you are running everything in Bash Shell
+```bash
+bash
 ```
 
 ## Project Structure
