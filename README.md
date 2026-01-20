@@ -86,7 +86,7 @@ ros2 run aruco_recognition aruco_pose_estimation.py
 ```
 
 ---
-# Troubleshooting
+## Troubleshooting Installation
 Failing at Colcon Build: Delete build artifacts and rebuild
 ```bash
 rm -rf build install log
@@ -97,6 +97,28 @@ Make sure you are running everything in Bash Shell
 ```bash
 bash
 ```
+
+# Running the Simulation
+## Moving the Arm (MoveIt)
+Go to the Rviz window (the one showing the orange robot).
+
+Locate the MotionPlanning panel (usually bottom left).
+
+Ensure "Planning Scene" is checked in the Displays panel.
+
+Use the interactive marker (arrows/rings at the end of the orange arm) to drag the "ghost" arm to a new goal position.
+
+Click the Plan & Execute button in the MotionPlanning panel.
+
+The real arm in Gazebo will move to match the plan.
+## Troubleshooting Simulation
+Arm is slumped/limp: You likely forgot to run the commands in Terminal 2. The controllers must be loaded manually.
+
+"Address already in use" error: An old simulation is still running in the background. Run killall -9 gzserver gzclient to force close it.
+
+Camera not showing in Rviz: Click "Add" in the Displays panel, select "Camera", and set the Topic to /camera/image_raw.
+
+Build fails: Ensure you are in the root ~/ros2_ws folder and have sourced /opt/ros/humble/setup.bash.
 
 ## Project Structure
 pixi.toml: The dependency manifest. Defines the environment packages.
